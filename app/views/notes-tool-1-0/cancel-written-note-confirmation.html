@@ -1,23 +1,16 @@
 
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
+{% set serviceName = 'Record a social work assessment' %}
 
 {% block beforeContent %}
-{{ govukPhaseBanner({
-	tag: {
-	text: "experimental"
-},
-html: 'This service is being used for research only.'
-}) }}
+{% include './includes/phase-banner--alpha.html' %}
 
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
 {% endblock %}
 
 {% block content %}
@@ -26,13 +19,13 @@ html: 'This service is being used for research only.'
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
 			{{ govukRadios({
-				idPrefix: "changed-name",
-				name: "changed-name",
+				idPrefix: "delete-note",
+				name: "delete-note",
 				fieldset: 
 				{
 					legend: 
 					{
-						text: "Does the training need to be delivered at a particular location?",
+						text: "Are you sure you want to delete this written note?",
 						isPageHeading: true,
 						classes: "govuk-fieldset__legend--xl"
 					}
@@ -44,18 +37,19 @@ html: 'This service is being used for research only.'
 				items: [
 				{
 					value: "yes",
-					text: "Training should be delivered at our business address"
+					text: "Yes"
 				},
 				{
 					value: "no",
-					text: "I have no preference"
+					text: "No"
 				}
 				]
 			}) }}
 
 			<p>
 				{{govukButton({
-					text: "Save and continue"
+					text: "Continue",
+					href: "assessment-notes"
 				})}}
 			</p>
 		</form>

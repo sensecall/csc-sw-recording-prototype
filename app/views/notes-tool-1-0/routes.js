@@ -7,8 +7,8 @@ router.get('/', (req, res, next) => {
 	res.redirect(`/${req.version}/start`)
 })
 
-router.post('/contacted-provider', (req, res, next) => {
-	res.redirect('provider-details')
+router.post('/new-written-note', (req, res, next) => {
+	res.redirect('assessment-notes')
 })
 
 module.exports = router
