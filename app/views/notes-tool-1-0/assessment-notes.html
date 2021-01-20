@@ -28,7 +28,9 @@
 			You have not added any written notes yet.
 		</p>
 
-		<form method="get" action="new-written-note">
+		<!-- {{data | dump}} -->
+
+		<form method="post" action="create-written-note">
 			<p>
 				{{govukButton({
 					text: "Add written note"
