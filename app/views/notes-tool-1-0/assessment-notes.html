@@ -62,5 +62,29 @@
 			</p>
 		</form>
 	</div>
+
+	<div class="govuk-grid-column-one-third">
+		<div class="govuk-!-padding-6 govuk-!-margin-bottom-8" style="background-color: #e5e5e5">
+			<h3 class="govuk-heading-m">
+				Download these assessment notes
+			</h3>
+
+			<p>
+				When you've finished adding assessment notes, you can download them as a single file.
+			</p>
+
+			<p>
+				{{govukButton({
+					html: 'Download<span class="govuk-visually-hidden"> assessment notes</span>',
+					href: "confirm-identity",
+					classes: "govuk-!-margin-bottom-0"
+				})}}
+			</p>
+
+			<p>
+				<a href="#">Preview assessment notes</a>
+			</p>
+		</div>
+	</div>
 </div>
 {% endblock %}
