@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+{% set serviceName = 'Record a social work assessment' %}
+
+{% block beforeContent %}
+{% include './includes/phase-banner--alpha.html' %}
+
+{{ govukBackLink({
+	"text": "Back",
+	"href": "javascript: window.history.go(-1)"
+}) 
+}}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<form method="post">
+			{{ govukRadios({
+				idPrefix: "existing-new",
+				name: "existing-new",
+				fieldset: 
+				{
+					legend: 
+					{
+						text: "Do you need to access an existing assessment?",
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--xl"
+					}
+				},
+				hint: 
+				{
+					text: ""
+				},
+				items: [
+				{
+					value: "yes",
+					text: "Yes"
+				},
+				{
+					value: "no",
+					text: "No"
+				}
+				]
+			}) }}
+
+			<p>
+				{{govukButton({
+					text: "Continue",
+					href: "email-address"
+				})}}
+			</p>
+		</form>
+	</div>
+</div>
+{% endblock %}
