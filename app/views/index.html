@@ -1,44 +1,50 @@
 
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  GOV.UK Prototype Kit
+{% set serviceName = 'Social work recording' %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag:
+  {
+    text: "Alpha"
+  },
+  html: 'This service is being used for research only.'
+}) }}
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">
+      {{serviceName}}
+    </h1>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        The GOV.UK Prototype Kit
-        <span class="govuk-caption-xl">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+    <p class="govuk-body-l govuk-!-margin-bottom-8">
+      Ideas for how we might help social workers spend more time doing high value tasks.
+    </p>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
-
-      <h2 class="govuk-heading-m">About this page</h2>
-
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-      <h2 class="govuk-heading-m">Examples and documentation</h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a href="/docs/tutorials-and-examples">Example pages and documentation</a>
-        </li>
-        <li>
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-        </li>
-      </ul>
-    </div>
+    <h2 class="govuk-heading-l govuk-!-margin-top-8 govuk-!-margin-bottom-3">
+      Sketches and ideas
+    </h2>
+    <h3 class="govuk-heading-m govuk-!-margin-bottom-2">
+      <a href="notes-tool-1-0">Notes tool version 1-0</a>
+      <span class="govuk-caption-m">20 January 2021</span>
+    </h3>
+    <p>
+      First sketches.
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Basic authentication flow
+      </li>
+      <li>
+        Assessment notes main page
+      </li>
+      <li>
+        Example page for creating a written note
+      </li>
+    </ul>
   </div>
 
-{% endblock %}
+  {% endblock %}
