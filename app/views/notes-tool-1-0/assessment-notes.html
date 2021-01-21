@@ -1,4 +1,3 @@
-
 {% extends "layout.html" %}
 
 {% set serviceName = 'Record a social work assessment' %}
@@ -18,12 +17,24 @@
 		<h2 class="govuk-heading-l">
 			Written notes
 		</h2>
+
+		{% if data['written-notes'].length %}
+		<table class="govuk-table">
+			<tbody class="govuk-table__body">
+				{% for note in data['written-notes'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="written-note?id={{note.id}}">{{note.text | truncate(25) }}</a></td>
+					<td class="govuk-table__cell">{{note.timestamp | formatDate('DD MMMM YYYY')}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		{% else %}
 		<p>
 			You have not added any written notes yet.
 		</p>
-
-		<!-- {{data | dump}} -->
-
+		{% endif %}
 		<form method="post" action="create-written-note">
 			<p>
 				{{govukButton({
@@ -41,7 +52,7 @@
 		<p>
 			{{govukButton({
 				text: "Add audio recording",
-				href: "confirm-identity"
+				href: "#"
 			})}}
 		</p>
 
@@ -53,7 +64,7 @@
 		</p>
 		<p>
 			{{govukButton({
-				text: "Add images or video",
+				text: "Add an image or video",
 				href: "new-media-file"
 			})}}
 		</p>

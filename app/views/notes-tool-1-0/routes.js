@@ -12,16 +12,23 @@ router.post('/create-written-note', (req, res, next) => {
 	let id = crypto.randomBytes(20).toString('hex');
 	let url = 'new-written-note?note-id=' + id
 
-	req.session.data[id] = {}
-
 	res.redirect(url)
 })
 
 router.post('/new-written-note', (req, res, next) => {
 	let id = req.session.data['note-id']
 
-	req.session.data[id]['text'] = req.session.data['note-content']
-	req.session.data[id]['timestamp'] = Date.now()
+	if(! req.session.data['written-notes']){
+		req.session.data['written-notes'] = new Array()
+	}
+
+	let note = {
+		id: id,
+		text: req.session.data['note-content'],
+		timestamp: Date.now()
+	}
+
+	req.session.data['written-notes'].push(note)
 
 	delete req.session.data['note-content']
 	delete req.session.data['note-id']
