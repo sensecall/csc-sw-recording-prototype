@@ -5,12 +5,6 @@
 
 {% block beforeContent %}
 {% include './includes/phase-banner--alpha.html' %}
-
-{{ govukBackLink({
-	"text": "Back",
-	"href": "javascript: window.history.go(-1)"
-}) 
-}}
 {% endblock %}
 
 {% block content %}
@@ -60,7 +54,7 @@
 		<p>
 			{{govukButton({
 				text: "Add images or video",
-				href: "confirm-identity"
+				href: "new-media-file"
 			})}}
 		</p>
 	</div>
