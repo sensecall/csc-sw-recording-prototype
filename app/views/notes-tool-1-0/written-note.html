@@ -12,12 +12,13 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 		<form method="post">
+			{% set noteContent = data['new-note-content'] or note[0]['text'] %}
 			{{ govukTextarea({
-				name: "note-content",
-				id: "note-content",
+				name: "new-note-content",
+				id: "new-note-content",
 				label:
 				{
-					text: "New written note",
+					text: "Edit written note",
 					classes: "govuk-label--xl",
 					isPageHeading: true
 				},
@@ -25,7 +26,8 @@
 				hint:
 				{
 					text: "Last saved 2 minutes ago."
-				}
+				},
+				value: noteContent
 			}) }}
 
 			<p class="govuk-!-margin-bottom-0">
@@ -33,9 +35,11 @@
 					text: "Save and continue"
 				})}}
 			</p>
-			<button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="cancel-written-note" formmethod="get" type="submit">
-				Cancel and delete this note
-			</button>
+			<p>
+				<button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="cancel-written-note" formmethod="get" type="submit">
+					Cancel and delete changes
+				</button>
+			</p>
 		</form>
 	</div>
 
