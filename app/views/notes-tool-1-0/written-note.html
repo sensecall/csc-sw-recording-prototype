@@ -34,9 +34,16 @@
 				})}}
 			</p>
 			<p>
-				<button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="cancel-written-note" formmethod="get" type="submit">
-					Cancel and delete changes
-				</button>
+				{{ govukButton({
+					text: "Cancel and delete this note",
+					classes: "govuk-button--warning",
+					attributes:
+					{
+						formaction: "cancel-written-note",
+						formmethod: "get",
+						type: "submit"
+					}
+				}) }}
 			</p>
 		</form>
 	</div>
