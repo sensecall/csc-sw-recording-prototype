@@ -4,6 +4,12 @@ const crypto = require('crypto')
 
 // Add your routes here - above the module.exports line
 
+router.all('*', function (req, res, next) {
+	res.locals['serviceName'] = 'Record a social work assessment visit'
+
+	next()
+})
+
 router.get('/', (req, res, next) => {
 	res.redirect(`/${req.version}/start`)
 })
