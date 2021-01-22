@@ -39,7 +39,8 @@
 		<form method="post" action="create-written-note">
 			<p>
 				{{govukButton({
-					text: "Add written note"
+					text: "Add written note",
+					classes: "govuk-button--secondary"
 				})}}
 			</p>
 		</form>
@@ -53,7 +54,8 @@
 		<p>
 			{{govukButton({
 				text: "Add audio recording",
-				href: "#"
+				href: "#",
+				classes: "govuk-button--secondary"
 			})}}
 		</p>
 
@@ -66,7 +68,8 @@
 		<p>
 			{{govukButton({
 				text: "Add an image or video",
-				href: "new-media-file"
+				href: "new-media-file",
+				classes: "govuk-button--secondary"
 			})}}
 		</p>
 	</div>
@@ -90,7 +93,7 @@
 			</p>
 
 			<p>
-				<a href="#">Preview assessment notes</a>
+				<a href="#" class="govuk-link--no-visited-state">Preview assessment notes</a>
 			</p>
 		</div>
 
@@ -103,7 +106,7 @@
 		</p>
 
 		<p class="govuk-inset-text">
-			<strong>16wt-8jjs-87d6-wp34</strong>
+			<strong><code>16WT-8JJS-87D6-WP34</code></strong>
 		</p>
 
 		<p>
